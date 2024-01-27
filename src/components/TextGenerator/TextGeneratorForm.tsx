@@ -34,7 +34,7 @@ const TextGeneratorForm = ({ setTextParams, textParams, callback }: TextGenerato
   const handleButtonValueClick = (type: string, value: string) => {
     if (type === "paragraphs") {
       setTextParams({ ...textParams, paragraphs: value });
-    } else if (type === "text") {
+    } else if (type === "max_length") {
       setTextParams({ ...textParams, max_length: value });
     } else throw new Error("Unknown button type");
   };
