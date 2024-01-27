@@ -5,6 +5,6 @@ import SignUpPage from "./SignUpPage/SignUpPage";
 import TextGeneratorPage from "./TextGeneratorPage/TextGeneratorPage";
 import BirthNumberGeneratorPage from "./BirthNumberGeneratorPage/BirthNumberGeneratorPage"
 import TimeReport from "./TimeReport/TimeReport";
-import SettingsPage from "./Settings/SettingsPage";
+import SettingsPage from "./SettingsPage/SettingsPage";
 
 export {SettingsPage, TimeReport, BirthNumberGeneratorPage, TextGeneratorPage, GeneratorsPage, HomePage, SignInPage, SignUpPage };

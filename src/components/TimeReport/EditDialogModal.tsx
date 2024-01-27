@@ -36,7 +36,7 @@ export function EditDialogModal({ children, editedIssue, setEditedIssue, callbac
             <Label htmlFor="username" className="text-right">
               Time
             </Label>
-            <Input id="time" name="time" value={editedIssue.time} onChange={(e) => handleInputChange(e)} className="col-span-3" />
+            <Input type="number" id="time" min={0} step={0.01} name="time" value={editedIssue.time} onChange={(e) => handleInputChange(e)} className="col-span-3" />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="username" className="text-right">
@@ -44,14 +44,14 @@ export function EditDialogModal({ children, editedIssue, setEditedIssue, callbac
             </Label>
             <Input id="note" name="note" value={editedIssue.note} onChange={(e) => handleInputChange(e)} className="col-span-3" />
           </div>
+          <DialogFooter>
+            <DialogClose asChild>
+              <Button type="submit" disabled={editedIssue.time <= 0} onClick={() => callback(editedIssue)}>
+                Save changes
+              </Button>
+            </DialogClose>
+          </DialogFooter>
         </div>
-        <DialogFooter>
-          <DialogClose asChild>
-            <Button type="submit" onClick={() => callback(editedIssue)}>
-              Save changes
-            </Button>
-          </DialogClose>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

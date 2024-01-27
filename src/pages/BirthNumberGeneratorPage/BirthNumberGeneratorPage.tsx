@@ -3,7 +3,7 @@ import RadioInput from "@/components/ui/RadioInput";
 import SkeletonGroup from "@/components/ui/SkeletonGroup";
 import { Button } from "@/components/ui/button";
 import { useBirthNumber } from "@/services/api/useBirthNumber";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const initData = { day: new Date().getDate(), month: new Date().getMonth() + 1, year: Math.floor(Math.random() * 53) + 1950 };
 
@@ -25,10 +25,6 @@ const BirthNumberGeneratorPage = () => {
     refetch();
   };
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   return (
     <section className="flex flex-col gap-4 px-4">
       <form onSubmit={(e) => handleFormSubmit(e)} className="flex flex-col gap-4 p-4 outline outline-1 outline-slate-700 rounded-lg w-fit lg:w-1/2">
@@ -37,7 +33,15 @@ const BirthNumberGeneratorPage = () => {
         <div className="flex flex-col gap-3 outline outline-1 outline-slate-700 p-2 rounded-lg justify-center lg:flex-row lg:gap-6">
           <RadioInput group="gender" name="MALE" label="MALE" callback={(e) => setGender(e.target.value)} checked={gender === "MALE"} />
           <RadioInput group="gender" name="FEMALE" label="FEMALE" callback={(e) => setGender(e.target.value)} checked={gender === "FEMALE"} />
-          <RadioInput group="gender" name="EXPO" label="EXPO" callback={(e) => setGender(e.target.value)} checked={gender === "EXPO"} />
+          <RadioInput
+            group="gender"
+            name="EXPO"
+            label="EXPO"
+            callback={(e) => {
+              setGender(e.target.value), setDate({ day: 21, month: 2, year: 1980 });
+            }}
+            checked={gender === "EXPO"}
+          />
         </div>
         <div className="flex flex-col gap-2">
           <NumberInput name="day" label="Day" value={date.day} callback={(e) => handleDateChange(e)} min={1} max={30} />

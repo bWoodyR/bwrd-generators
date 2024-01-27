@@ -8,10 +8,22 @@ import { EditDialogModal } from "../../components/TimeReport/EditDialogModal";
 
 const issueInitState: TIssue = { issueId: "", note: "", time: 0 };
 
+const getIssuesFromLocalStorage = () => {
+  let issues = [] as TIssue[];
+  if (localStorage.getItem("issueList")) {
+    const tempArr = localStorage.getItem("issueList") || "[]";
+    issues = JSON.parse(tempArr);
+  }
+  return issues;
+};
+
 const TimeReport = () => {
   const [newIssue, setNewIssue] = useState(issueInitState);
   const [editedIssue, setEditedIssue] = useState(issueInitState);
-  const [issueList, setIssueList] = useState<TIssue[]>([]);
+  const [issueList, setIssueList] = useState<TIssue[]>(getIssuesFromLocalStorage());
+  const [totalTime, setTotalTime] = useState(0);
+
+  console.log();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewIssue({ ...newIssue, [e.target.name]: e.target.value });
@@ -29,6 +41,10 @@ const TimeReport = () => {
     setIssueList((prevArr) => prevArr.filter((issue) => issue.issueId !== id));
   };
 
+  const deleteAllIssues = () => {
+    setIssueList([]);
+  };
+
   const editIssue = (updatedIssue: TIssue) => {
     const updatedList = issueList.map((issue) => {
       if (issue.issueId === updatedIssue.issueId) {
@@ -40,19 +56,20 @@ const TimeReport = () => {
   };
 
   useEffect(() => {
-    console.log(issueList);
+    localStorage.setItem("issueList", JSON.stringify(issueList));
+    setTotalTime(issueList.reduce((sum, num) => sum + Number(num.time), 0));
   }, [issueList]);
 
   return (
     <section className="w-fit outline outline-1 outline-slate-700 rounded-lg ml-4 py-2">
-      <form onSubmit={(e) => addIssue(e)} className="flex gap-4 px-4 w-full mb-6">
+      <form onSubmit={(e) => addIssue(e)} className="flex flex-col lg:flex-row gap-4 px-4 w-full mb-6">
         <div className="flex items-center gap-2">
           <label htmlFor="issueId">Issue:</label>
           <Input type="text" className="w-[150px]" name="issueId" id="issueId" value={newIssue.issueId} onChange={(e) => handleInputChange(e)}></Input>
         </div>
         <div className="flex items-center gap-2">
           <label htmlFor="">Time:</label>
-          <Input type="number" className="w-[75px]" name="time" id="time" value={newIssue.time === 0 ? "" : newIssue.time} onChange={(e) => handleInputChange(e)}></Input>
+          <Input type="number" className="w-[75px]" min={0} step={0.01} name="time" id="time" value={newIssue.time === 0 ? "" : newIssue.time} onChange={(e) => handleInputChange(e)}></Input>
         </div>
         <div className="flex items-center gap-2">
           <label htmlFor="">Note:</label>
@@ -85,11 +102,23 @@ const TimeReport = () => {
                         <FaPenToSquare className="text-lg hover:cursor-pointer" />
                       </Button>
                     </EditDialogModal>
-                    | <FaTrashCan onClick={() => deleteIssue(issue.issueId)} className="text-red-600 text-lg hover:cursor-pointer" />
+                     <FaTrashCan onClick={() => deleteIssue(issue.issueId)} className="text-red-600 text-lg hover:cursor-pointer" />
                   </TableCell>
                 </TableRow>
               );
             })}
+            <TableRow className="text-slate-600 font-bold tracking-wider">
+              <TableCell>TOTAL TIME</TableCell>
+              <TableCell>{totalTime.toFixed(2)}</TableCell>
+              <TableCell></TableCell>
+              <TableCell>
+                {issueList.length !== 0 && (
+                  <Button variant={"destructive"} className="h-5" disabled={issueList.length === 0} onClick={() => deleteAllIssues()}>
+                    Remove All
+                  </Button>
+                )}
+              </TableCell>
+            </TableRow>
           </TableBody>
           <TableCaption>A list of your recent issues.</TableCaption>
         </Table>

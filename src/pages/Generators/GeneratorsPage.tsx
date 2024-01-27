@@ -37,10 +37,6 @@ const GeneratorsPage = () => {
     if (inputRefs.current[0]) inputRefs.current[0].focus();
   }, []);
 
-  useEffect(() => {
-    console.log(pass);
-  }, [pass]);
-
   return (
     <section>
       <div className="flex gap-4">

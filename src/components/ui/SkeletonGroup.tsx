@@ -7,8 +7,6 @@ type SkeletonGroupProps = {
 const SkeletonGroup = ({ count = 3 }: SkeletonGroupProps) => {
   const skeletons = Array.from({ length: count }, (_, i) => i);
 
-  console.log(skeletons);
-
   return (
     <div className="flex flex-col gap-4 ">
       {skeletons.map((skeleton) => {
