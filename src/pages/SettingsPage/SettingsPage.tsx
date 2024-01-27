@@ -12,10 +12,10 @@ const SettingsPage = () => {
   };
 
   return (
-    <section className="flex flex-col gap-4 ml-4 outline outline-1 outline-slate-700 p-4 rounded-lg w-fit md:w-1/2">
+    <section className="flex flex-col gap-4 mx-2 outline outline-1 outline-slate-700 p-4 rounded-lg ">
       <h1 className="text-4xl mb-4">{lang.settings}</h1>
       <h2 className="text-lg font-medium">{lang.settings_preferences}</h2>
-      <div className="flex flex-col gap-6 outline outline-1 outline-slate-700 rounded-lg p-2 w-[360px]">
+      <div className="flex flex-col gap-6 outline outline-1 outline-slate-700 rounded-lg p-2 md:w-[360px]">
         <div className="flex flex-col gap-2">
           <p className="text-sm font-medium">{lang.settings_selectLanguage}</p>
           <Select onValueChange={(langValue) => handleLanguageChange(langValue)} defaultValue={state.lang.language}>
