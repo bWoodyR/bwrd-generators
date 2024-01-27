@@ -64,7 +64,7 @@ const TimeReport = () => {
   }, [issueList]);
 
   return (
-    <section className="w-fit outline outline-1 outline-slate-700 rounded-lg ml-2 md:ml-4 py-2">
+    <section className=" py-2 mx-2 outline outline-1 outline-slate-700 rounded-lg md:w-fit md:ml-4 ">
       <form onSubmit={(e) => addIssue(e)} className="flex flex-col lg:flex-row gap-4 px-4 w-full mb-6">
         <div className="flex items-center gap-2">
           <label htmlFor="issueId">{lang.issue}</label>

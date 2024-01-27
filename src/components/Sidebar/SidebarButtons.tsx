@@ -1,6 +1,6 @@
 import { AppContext } from "@/services/Context/AppProvider";
 import { useContext } from "react";
-import { FaCalendarAlt, FaRandom, FaTextWidth, FaUserClock } from "react-icons/fa";
+import { FaCalendarAlt, FaHome, FaTextWidth, FaUserClock } from "react-icons/fa";
 import { FaGear } from "react-icons/fa6";
 import { Link, useLocation } from "react-router-dom";
 
@@ -12,7 +12,7 @@ const sidebarButtons = [
       sk: "Domov",
       cz: "Domů",
     },
-    icon: <FaRandom />,
+    icon: <FaHome />,
   },
   {
     path: "text-generator",

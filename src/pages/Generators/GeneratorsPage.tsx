@@ -6,7 +6,7 @@ const GeneratorsPage = () => {
   const inputRefs = useRef<HTMLInputElement[]>([]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
-    const value = e.target.value;
+    const value = e.target.value ;
 
     if (isNaN(value)) return;
 
