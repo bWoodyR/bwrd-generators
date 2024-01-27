@@ -1,21 +1,20 @@
 import { Button } from "@/components/ui/button";
-import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
-    <section className="flex flex-col justify-center items-center min-h-screen">
-      <h1 className="text-4xl">GENERATORS</h1>
-      <div>
+    <section className="flex flex-col justify-center items-center min-h-screen bg-[url('/generatorsImg.png')] bg-cover bg-center">
+      <div className="bg-black p-8 flex flex-col gap-4 rounded-xl">
         <SignedIn>
-          <UserButton afterSignOutUrl="/sign-in" />
           <Link to={"/generators"}>
             <Button>Go To Generators</Button>
           </Link>
         </SignedIn>
         <SignedOut>
+          <p className="text-lg">Sign in to use this application</p>
           <Button>
-            <Link to="/sign-in">Sign In</Link>
+            <Link to="/sign-in">SIGN IN</Link>
           </Button>
         </SignedOut>
       </div>

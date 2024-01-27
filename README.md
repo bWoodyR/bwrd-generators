@@ -1,3 +1,3 @@
-# Recreating one of my project in Tailwind, Shadcn, Clerk auth
+# Recreating one of my project with Tailwind, Shadcn, Clerk auth
 
-### learning tailwind ...
+### learning tailwind ... 🤦‍♂️

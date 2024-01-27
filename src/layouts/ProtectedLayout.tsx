@@ -13,7 +13,12 @@ export default function DashboardLayout() {
     }
   }, [navigate, userId, isLoaded]);
 
-  if (!isLoaded) return "Loading...";
+  if (!isLoaded)
+    return (
+      <div className="min-h-dvh flex justify-center items-center">
+        <h1 className="text-3xl">Loading...</h1>
+      </div>
+    );
 
   if (!userId) return "Login required...";
 
