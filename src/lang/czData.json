@@ -33,5 +33,9 @@
   "submit": "Přidat",
   "totalTime": "CELKOVÝ ČAS",
   "clear": "Vymazat",
-  "time_report_list_of_current_issues": "Seznam issue."
+  "time_report_list_of_current_issues": "Seznam issue.",
+  "time_report_all_issue_deleted": "Všechny issues byly smazány!",
+  "time_report_issue_deleted": "Issue bylo smazáno!",
+  "time_report_issue_added": "Issue bylo přidáno!",
+  "time_report_issue_edited": "Issue bylo upravno!"
 }

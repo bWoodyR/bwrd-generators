@@ -33,5 +33,9 @@
   "submit": "Submit",
   "totalTime": "TOTAL TIME",
   "clear": "Clear",
-  "time_report_list_of_current_issues": "A list of your recent issues."
+  "time_report_list_of_current_issues": "A list of your recent issues.",
+  "time_report_all_issue_deleted": "All issues were deleted!",
+  "time_report_issue_deleted": "Issue deleted!",
+  "time_report_issue_added": "Issue added!",
+  "time_report_issue_edited": "Issue edited!"
 }

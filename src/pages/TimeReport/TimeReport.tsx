@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import { FaPenToSquare, FaTrashCan } from "react-icons/fa6";
 import { EditDialogModal } from "../../components/TimeReport/EditDialogModal";
 import { AppContext } from "@/services/Context/AppProvider";
+import { toast } from "@/components/ui/use-toast";
 
 const issueInitState: TIssue = { issueId: "", note: "", time: 0 };
 
@@ -37,15 +38,24 @@ const TimeReport = () => {
     if (newIssue.issueId && newIssue.time) {
       setIssueList((prevArr) => [...prevArr, newIssue]);
       setNewIssue(issueInitState);
+      toast({
+        description: lang.time_report_issue_added,
+      });
     }
   };
 
   const deleteIssue = (id: string) => {
     setIssueList((prevArr) => prevArr.filter((issue) => issue.issueId !== id));
+    toast({
+      description: lang.time_report_issue_deleted,
+    });
   };
 
   const deleteAllIssues = () => {
     setIssueList([]);
+    toast({
+      description: lang.time_report_all_issue_deleted,
+    });
   };
 
   const editIssue = (updatedIssue: TIssue) => {
@@ -56,6 +66,9 @@ const TimeReport = () => {
     });
     setIssueList(updatedList);
     setEditedIssue(issueInitState);
+    toast({
+      description: lang.time_report_issue_edited,
+    });
   };
 
   useEffect(() => {

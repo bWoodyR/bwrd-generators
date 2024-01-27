@@ -25,7 +25,7 @@ export default function DashboardLayout() {
       <section className="flex relative">
         <Sidebar />
         <div className="flex flex-col gap-8 w-full">
-          <h1 className="ml-[90px] mt-4 text-4xl md:ml-[270px]">
+          <h1 className="ml-[90px] mt-4 text-2xl md:ml-[270px]">
             {state.lang.langFile.hello} {user?.firstName}
           </h1>
           <div className="ml-[75px] md:ml-[250px] ">
