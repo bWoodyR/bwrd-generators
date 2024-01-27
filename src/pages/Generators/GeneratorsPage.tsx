@@ -9,7 +9,7 @@ const GeneratorsPage = () => {
   const welcomePageParagraphs = state.lang.langFile.welcomePageParagraphs as string[];
 
   return (
-    <section className=" mx-4 mb-4 p-4 text-gray-100 outline outline-1 outline-slate-700 rounded-lg text-balance">
+    <section className=" m-2 p-4 text-gray-100 outline outline-1 outline-slate-700 rounded-lg text-balance">
       <h1 className="text-4xl font-bold mb-4">
         {state.lang.langFile.hello} {user?.firstName}
       </h1>

@@ -1,6 +1,6 @@
 type CheckboxInputProps = {
   name: string;
-  label: string;
+  label: string | string[];
   checked: boolean;
   callback: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };

@@ -1,6 +1,8 @@
+import { TGender } from "@/types/BirthNumberTypes";
+
 type RadioInputProps = {
-  name: string;
-  label: string;
+  name: TGender;
+  label: string | string[];
   group: string;
   callback: (e: React.ChangeEvent<HTMLInputElement>) => void;
   checked: boolean;

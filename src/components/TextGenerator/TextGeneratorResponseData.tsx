@@ -6,7 +6,7 @@ type TextGeneratorDataProps = {
   text: string;
 };
 
-const TextGeneratorData = ({ text }: TextGeneratorDataProps) => {
+const TextGeneratorResponseData = ({ text }: TextGeneratorDataProps) => {
   const { state } = useContext(AppContext);
   const textWithSpaces = text.replace(/\n/g, "\n\n");
 
@@ -26,4 +26,4 @@ const TextGeneratorData = ({ text }: TextGeneratorDataProps) => {
   );
 };
 
-export default TextGeneratorData;
+export default TextGeneratorResponseData;

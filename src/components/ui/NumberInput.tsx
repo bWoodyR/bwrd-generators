@@ -2,11 +2,11 @@ import { Input } from "./input";
 
 type NumberInputProps = {
   name: string;
-  label: string;
+  label: string | string[];
   value: number;
   callback: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  min: number, 
-  max: number
+  min: number;
+  max: number;
 };
 
 const NumberInput = ({ name, label, value, callback, min, max }: NumberInputProps) => {

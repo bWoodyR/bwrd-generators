@@ -1,30 +1,20 @@
 import React, { useContext } from "react";
 import { Button } from "../ui/button";
-import TextInput from "../ui/TextInput";
+import TextInputWithButtons from "../ui/TextInputWithButtons";
 import CheckboxInput from "../ui/CheckboxInput";
 import { AppContext } from "@/services/Context/AppProvider";
+import { TTextGeneratorData } from "@/types/textGeneratorTypes";
 
 type TextGeneratorFormProps = {
-  textParams: {
-    max_length: string;
-    paragraphs: string;
-    start_with_lorem_ipsum: boolean;
-    random: boolean;
-  };
-  setTextParams: React.Dispatch<
-    React.SetStateAction<{
-      max_length: string;
-      paragraphs: string;
-      start_with_lorem_ipsum: boolean;
-      random: boolean;
-    }>
-  >;
+  textParams: TTextGeneratorData;
+  setTextParams: React.Dispatch<React.SetStateAction<TTextGeneratorData>>;
   callback: () => void;
 };
 
 const TextGeneratorForm = ({ setTextParams, textParams, callback }: TextGeneratorFormProps) => {
   const { state } = useContext(AppContext);
   const lang = state.lang.langFile;
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const type = e.target.type;
     const name = e.target.name;
@@ -44,7 +34,9 @@ const TextGeneratorForm = ({ setTextParams, textParams, callback }: TextGenerato
   const handleButtonValueClick = (type: string, value: string) => {
     if (type === "paragraphs") {
       setTextParams({ ...textParams, paragraphs: value });
-    } else setTextParams({ ...textParams, max_length: value });
+    } else if (type === "text") {
+      setTextParams({ ...textParams, max_length: value });
+    } else throw new Error("Unknown button type");
   };
 
   return (
@@ -52,7 +44,7 @@ const TextGeneratorForm = ({ setTextParams, textParams, callback }: TextGenerato
       <h1 className="text-lg ">{lang.text_generator_lorem_ipsum_setup}</h1>
       <hr className="border-white" />
       <form onSubmit={(e) => handleFormSubmit(e)} className="flex flex-col gap-4">
-        <TextInput
+        <TextInputWithButtons
           name="max_length"
           label={lang.text_generator_letters}
           value={textParams.max_length}
@@ -61,7 +53,7 @@ const TextGeneratorForm = ({ setTextParams, textParams, callback }: TextGenerato
           valueButtons={["60", "500", "1000"]}
           valueButtonsCallback={(name: string, value: string) => handleButtonValueClick(name, value)}
         />
-        <TextInput name="paragraphs" label={lang.text_generator_paragraphs} value={textParams.paragraphs} callbackOnChange={(e) => handleInputChange(e)} valueButtons={["", "3", "5"]} valueButtonsCallback={(name: string, value: string) => handleButtonValueClick(name, value)} />
+        <TextInputWithButtons name="paragraphs" label={lang.text_generator_paragraphs} value={textParams.paragraphs} callbackOnChange={(e) => handleInputChange(e)} valueButtons={["", "3", "5"]} valueButtonsCallback={(name: string, value: string) => handleButtonValueClick(name, value)} />
         <CheckboxInput name="start_with_lorem_ipsum" label={lang.text_generator_start_with_lorem} checked={textParams.start_with_lorem_ipsum} callback={(e) => handleInputChange(e)} />
         <CheckboxInput name="random" label={lang.text_generator_random} checked={textParams.random} callback={(e) => handleInputChange(e)} />
         <Button type="submit" variant="secondary">

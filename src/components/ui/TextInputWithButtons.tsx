@@ -3,7 +3,7 @@ import ButtonsWithValues from "./ButtonsWithValues";
 
 type TextInputProps = {
   name: string;
-  label: string;
+  label: string | string[];
   value: string;
   callbackOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
@@ -11,7 +11,7 @@ type TextInputProps = {
   valueButtonsCallback?: (name: string, value: string) => void;
 };
 
-const TextInput = ({ name, label, value, callbackOnChange, disabled = false, valueButtons, valueButtonsCallback = () => {} }: TextInputProps) => {
+const TextInputWithButtons = ({ name, label, value, callbackOnChange, disabled = false, valueButtons, valueButtonsCallback = () => {} }: TextInputProps) => {
   return (
     <div className="grid grid-cols-2 gap-2 items-center md:flex md:gap-4">
       <label htmlFor={name} className="w-28">
@@ -23,4 +23,4 @@ const TextInput = ({ name, label, value, callbackOnChange, disabled = false, val
   );
 };
 
-export default TextInput;
+export default TextInputWithButtons;

@@ -19,9 +19,9 @@ export default function DashboardLayout() {
 
   return (
     <>
-      <section className="flex relative ">
+      <section className="flex relative">
         <Sidebar />
-        <div className="ml-[75px] md:ml-[250px] w-full mt-4 ">
+        <div className="ml-[75px] md:ml-[250px] w-full  mt-4  overflow-hidden">
           <Outlet />
         </div>
       </section>

@@ -1,7 +1,7 @@
 import { SignIn } from "@clerk/clerk-react";
 const SignInPage = () => {
   return (
-    <div>
+    <div className="flex items-center justify-center min-h-dvh">
       <SignIn afterSignInUrl="/generators"></SignIn>
     </div>
   );
