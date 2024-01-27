@@ -9,6 +9,9 @@ const HomePage = () => {
       <div>
         <SignedIn>
           <UserButton afterSignOutUrl="/sign-in" />
+          <Link to={"/generators"}>
+            <Button>Go To Generators</Button>
+          </Link>
         </SignedIn>
         <SignedOut>
           <Button>
@@ -16,7 +19,6 @@ const HomePage = () => {
           </Button>
         </SignedOut>
       </div>
-   
     </section>
   );
 };

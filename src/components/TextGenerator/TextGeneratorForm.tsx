@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "../ui/button";
 import TextInput from "../ui/TextInput";
 import CheckboxInput from "../ui/CheckboxInput";
+import { AppContext } from "@/services/Context/AppProvider";
 
 type TextGeneratorFormProps = {
   textParams: {
@@ -22,6 +23,8 @@ type TextGeneratorFormProps = {
 };
 
 const TextGeneratorForm = ({ setTextParams, textParams, callback }: TextGeneratorFormProps) => {
+  const { state } = useContext(AppContext);
+  const lang = state.lang.langFile;
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const type = e.target.type;
     const name = e.target.name;
@@ -46,23 +49,23 @@ const TextGeneratorForm = ({ setTextParams, textParams, callback }: TextGenerato
 
   return (
     <div className="flex flex-col gap-4 outline outline-1 outline-slate-700 rounded-lg px-4 py-4 w-fit lg:w-1/2 ">
-      <h1 className="text-lg ">Lorem Ipsum Setup</h1>
+      <h1 className="text-lg ">{lang.text_generator_lorem_ipsum_setup}</h1>
       <hr className="border-white" />
       <form onSubmit={(e) => handleFormSubmit(e)} className="flex flex-col gap-4">
         <TextInput
           name="max_length"
-          label="Letters"
+          label={lang.text_generator_letters}
           value={textParams.max_length}
           callbackOnChange={(e) => handleInputChange(e)}
           disabled={textParams.paragraphs !== ""}
           valueButtons={["60", "500", "1000"]}
           valueButtonsCallback={(name: string, value: string) => handleButtonValueClick(name, value)}
         />
-        <TextInput name="paragraphs" label="Paragraphs" value={textParams.paragraphs} callbackOnChange={(e) => handleInputChange(e)} valueButtons={["", "3", "5"]} valueButtonsCallback={(name: string, value: string) => handleButtonValueClick(name, value)} />
-        <CheckboxInput name="start_with_lorem_ipsum" label="Start with Lorem" checked={textParams.start_with_lorem_ipsum} callback={(e) => handleInputChange(e)} />
-        <CheckboxInput name="random" label="Random" checked={textParams.random} callback={(e) => handleInputChange(e)} />
+        <TextInput name="paragraphs" label={lang.text_generator_paragraphs} value={textParams.paragraphs} callbackOnChange={(e) => handleInputChange(e)} valueButtons={["", "3", "5"]} valueButtonsCallback={(name: string, value: string) => handleButtonValueClick(name, value)} />
+        <CheckboxInput name="start_with_lorem_ipsum" label={lang.text_generator_start_with_lorem} checked={textParams.start_with_lorem_ipsum} callback={(e) => handleInputChange(e)} />
+        <CheckboxInput name="random" label={lang.text_generator_random} checked={textParams.random} callback={(e) => handleInputChange(e)} />
         <Button type="submit" variant="secondary">
-          Generate
+          {lang.generate}
         </Button>
       </form>
     </div>

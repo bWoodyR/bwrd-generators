@@ -1,14 +1,15 @@
 import { useReducer } from "react";
 import appReducer, { Action, State } from "./appReducer";
 import React from "react";
+import { getLanguage } from "@/helpers/getLanguageFromLocalStorage";
 
 type AppContextType = {
   state: State;
   dispatch: React.Dispatch<Action>;
 };
 
-const initState = {
-  selectedSection: "",
+const initState: State = {
+  lang: getLanguage()
 };
 
 const AppContext = React.createContext<AppContextType>({

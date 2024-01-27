@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { Button } from "../ui/button";
+import { AppContext } from "@/services/Context/AppProvider";
 
 type TextGeneratorDataProps = {
   text: string;
 };
 
 const TextGeneratorData = ({ text }: TextGeneratorDataProps) => {
+  const { state } = useContext(AppContext);
   const textWithSpaces = text.replace(/\n/g, "\n\n");
 
   return (
@@ -13,7 +16,7 @@ const TextGeneratorData = ({ text }: TextGeneratorDataProps) => {
         <div className="flex flex-col gap-4">
           <div className="flex gap-4  w-full justify-center items-center md:justify-start md:items-start">
             <Button variant="secondary" onClick={() => navigator.clipboard.writeText(textWithSpaces)}>
-              Copy Text
+              {state.lang.langFile.copyText}
             </Button>
           </div>
           {textWithSpaces}

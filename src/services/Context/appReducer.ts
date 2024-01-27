@@ -1,20 +1,24 @@
+import { getLanguage } from "@/helpers/getLanguageFromLocalStorage";
+import { LanguagesTypes, TLanguages } from "@/types/LanguagesTypes";
+
 export enum ACTION_TYPES {
-  SET_SELECTED_SECTION = "SET_SELECTED_SECTION",
+  SELECT_LANGUAGE = "SELECT_LANGUAGE",
 }
 
 export type Action = {
   type: ACTION_TYPES;
-  payload: string;
+  payload: unknown;
 };
 
 export type State = {
-  selectedSection: string;
+  lang: LanguagesTypes;
 };
 
 const appReducer = (state: State, action: Action): State => {
   switch (action.type) {
-    case ACTION_TYPES.SET_SELECTED_SECTION:
-      return { ...state, selectedSection: action.payload };
+    case ACTION_TYPES.SELECT_LANGUAGE:
+      localStorage.setItem("lang", action.payload as TLanguages);
+      return { ...state, lang: getLanguage() };
 
     default:
       throw new Error(`No action type ${action.type} found`);
