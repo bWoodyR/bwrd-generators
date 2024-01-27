@@ -37,5 +37,15 @@
   "time_report_all_issue_deleted": "Všechny issues byly smazány!",
   "time_report_issue_deleted": "Issue bylo smazáno!",
   "time_report_issue_added": "Issue bylo přidáno!",
-  "time_report_issue_edited": "Issue bylo upravno!"
+  "time_report_issue_edited": "Issue bylo upravno!",
+  "welcomePageParagraphs": [
+    "🚀 Vydejte se na cestu kreativity a spontánosti s naší přepracovanou platformou, vytvořenou pomocí silné kombinace React, Tailwind CSS, Shadcn a Clerk pro bezproblémovou autentizaci.",
+    "📝 Generujte poutavý text Lorem Ipsum, vytvářejte náhodná rodná čísla a zlepšujte svou profesionální rutinu snadno vytvářením denních zpráv. Možnosti jsou nekonečné a síla tvarovat náhodnost je nyní na dosah vašich prstů.",
+    "🔐 S autentizací Clerk je vaš zážitek nejen zábavný, ale i bezpečný. Užívejte si bezproblémové a chráněné prostředí při zkoumání rozmanitých funkcí našeho projektu.",
+    "🌐 Objevte možnost přizpůsobení jazyka a přizpůsobte si svůj zážitek. Nastavte si jazyk podle svého výběru a udělejte každý generovaný výstup jedinečně svůj.",
+    "🔍 V dohledné době nás čekají vzrušující aktualizace! Buďte naladěni, protože se chystáme představit generátor hesel pro vytváření robustních a bezpečných hesel. Navíc přidejte něco barevného do své kreativity s naším nadcházejícím generátorem barev.",
+    "Připojte se k nám na této cestě inovací a kreativity. Začněte generovat a nechte náhodnost rozvířit vaši představivost!"
+  ],
+  "welcomePageTitle": "vítejte ve zcela nové verzi 2 našeho projektu Generátorů!",
+  "timeReport": "Report času"
 }

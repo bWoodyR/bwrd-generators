@@ -37,5 +37,15 @@
   "time_report_all_issue_deleted": "All issues were deleted!",
   "time_report_issue_deleted": "Issue deleted!",
   "time_report_issue_added": "Issue added!",
-  "time_report_issue_edited": "Issue edited!"
+  "time_report_issue_edited": "Issue edited!",
+  "welcomePageParagraphs": [
+    "🚀 Embark on a journey of creativity and spontaneity with our revamped platform, crafted using the powerful combination of React, Tailwind CSS, Shadcn, and Clerk for seamless authentication.",
+    "📝 Generate captivating Lorem Ipsum text, craft random birth numbers, and enhance your professional routine by creating daily reports effortlessly. The possibilities are endless, and the power to shape randomness is now at your fingertips.",
+    "🔐 With Clerk authentication, your experience is not only fun but secure. Enjoy a hassle-free and protected environment as you explore the diverse features of our generator project.",
+    "🌐 Explore the language customization feature to tailor your experience. Set the language of your choice and make every generated output uniquely yours.",
+    "🔍 Exciting updates on the horizon! Stay tuned as we're gearing up to introduce a password generator for creating robust and secure passwords. Plus, add a splash of color to your creativity with our upcoming color generator.",
+    "Join us on this journey of innovation and creativity. Start generating and let randomness spark your imagination!"
+  ],
+  "welcomePageTitle": "welcome to the all-new Version 2 of our Generators Project!",
+  "timeReport": "Time Report"
 }

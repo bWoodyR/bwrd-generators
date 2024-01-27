@@ -78,6 +78,7 @@ const TimeReport = () => {
 
   return (
     <section className=" py-2 mx-2 outline outline-1 outline-slate-700 rounded-lg md:w-fit md:ml-4 ">
+      <h1 className="text-lg p-2 font-medium mb-2">{lang.timeReport}</h1>
       <form onSubmit={(e) => addIssue(e)} className="flex flex-col lg:flex-row gap-4 px-4 w-full mb-6">
         <div className="flex items-center gap-2">
           <label htmlFor="issueId">{lang.issue}</label>

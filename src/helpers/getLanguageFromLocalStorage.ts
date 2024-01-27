@@ -8,7 +8,7 @@ export const getLanguageFromLocalStorage = () => {
   return "en";
 };
 
-export const getLanguageDataFile = () => {
+export const getLanguageDataFile = (): Record<string, string | string[]> => {
   switch (getLanguageFromLocalStorage()) {
     case "en":
       return enData;
@@ -17,14 +17,13 @@ export const getLanguageDataFile = () => {
     case "cz":
       return czData;
     default:
-      throw new Error("Unknown language");
+      return enData;
   }
 };
 
-
 export const getLanguage = () => {
-    return {
-      language: getLanguageFromLocalStorage(),
-      langFile: getLanguageDataFile(),
-    };
-}
+  return {
+    language: getLanguageFromLocalStorage(),
+    langFile: getLanguageDataFile(),
+  };
+};

@@ -1,14 +1,11 @@
-import React, { useContext } from "react";
-import { useAuth, useUser } from "@clerk/clerk-react";
+import React from "react";
+import { useAuth } from "@clerk/clerk-react";
 import { Outlet, useNavigate } from "react-router-dom";
 import Sidebar from "@/components/Sidebar/Sidebar";
-import { AppContext } from "@/services/Context/AppProvider";
 
 export default function DashboardLayout() {
   const { userId, isLoaded } = useAuth();
-  const { user } = useUser();
   const navigate = useNavigate();
-  const { state } = useContext(AppContext);
 
   React.useEffect(() => {
     if (!userId && isLoaded) {
@@ -22,15 +19,10 @@ export default function DashboardLayout() {
 
   return (
     <>
-      <section className="flex relative">
+      <section className="flex relative ">
         <Sidebar />
-        <div className="flex flex-col gap-8 w-full">
-          <h1 className="ml-[90px] mt-4 text-2xl md:ml-[270px]">
-            {state.lang.langFile.hello} {user?.firstName}
-          </h1>
-          <div className="ml-[75px] md:ml-[250px] ">
-            <Outlet />
-          </div>
+        <div className="ml-[75px] md:ml-[250px] w-full mt-4 ">
+          <Outlet />
         </div>
       </section>
     </>
