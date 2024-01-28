@@ -4,12 +4,12 @@ import { ACTION_TYPES } from "@/services/Context/appReducer";
 import { useContext } from "react";
 
 const SettingsContent = () => {
-      const { state, dispatch } = useContext(AppContext);
-      const lang = state.lang.langFile;
+  const { state, dispatch } = useContext(AppContext);
+  const lang = state.lang.langFile;
 
-      const handleLanguageChange = (langValue: string) => {
-        dispatch({ type: ACTION_TYPES.SELECT_LANGUAGE, payload: langValue });
-      };
+  const handleLanguageChange = (langValue: string) => {
+    dispatch({ type: ACTION_TYPES.SELECT_LANGUAGE, payload: langValue });
+  };
 
   return (
     <div className="flex flex-col gap-6 outline outline-1 outline-slate-700 rounded-lg p-2 md:w-[360px]">
@@ -21,6 +21,7 @@ const SettingsContent = () => {
           { value: "cz", label: lang.czech },
         ]}
         callback={(langValue: string) => handleLanguageChange(langValue)}
+        defaultValue={state.lang.language}
       />
       <SettingsSelectBox
         sectionName={lang.settings_selectTheme as string}
@@ -30,6 +31,7 @@ const SettingsContent = () => {
           { value: "system", label: lang.system },
         ]}
         callback={(langValue: string) => handleLanguageChange(langValue)}
+        defaultValue={"dark"}
         disabled
       />
     </div>

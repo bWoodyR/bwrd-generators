@@ -10,13 +10,14 @@ type SettingsSelectBoxProps = {
   selectableData: TSelectableData[];
   callback: (langValue: string) => void;
   disabled?: boolean;
+  defaultValue: string
 };
 
-const SettingsSelectBox = ({ sectionName, selectableData, callback, disabled = false }: SettingsSelectBoxProps) => {
+const SettingsSelectBox = ({ sectionName, selectableData, callback, disabled = false, defaultValue }: SettingsSelectBoxProps) => {
   return (
     <div className="flex flex-col gap-2">
       <p className="text-sm font-medium">{sectionName}</p>
-      <Select onValueChange={(langValue) => callback(langValue)} defaultValue={selectableData[0].value} disabled={disabled}>
+      <Select onValueChange={(langValue) => callback(langValue)} defaultValue={defaultValue} disabled={disabled}>
         <SelectTrigger className="">
           <SelectValue placeholder="Language" />
         </SelectTrigger>
