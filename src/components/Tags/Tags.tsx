@@ -2,10 +2,11 @@ import SingleTag from "./SingleTag";
 import TagButtons from "./TagButtons";
 import { useContext, useState } from "react";
 import { TTag } from "@/types/TagType";
-import { FaCircleInfo } from "react-icons/fa6";
 import { AppContext } from "@/services/Context/AppProvider";
 import { useGeneratorsTags } from "@/services/api/useGenerators";
 import { toast } from "../ui/use-toast";
+import CustomTagListInfo from "./CustomTagListInfo";
+import UnauthorizedForTags from "./UnauthorizedForTags";
 
 const Tags = () => {
   const [isCreatingCustomList, setIsCreatingCustomList] = useState(false);
@@ -26,16 +27,7 @@ const Tags = () => {
       {state.user?.isTipsport ? (
         <>
           <TagButtons isCreatingCustomList={isCreatingCustomList} setIsCreatingCustomList={setIsCreatingCustomList} selectedTags={selectedTags} setSelectedTags={setSelectedTags} callbackCopyAllTags={() => copyAllTags()} />
-          {isCreatingCustomList && (
-            <>
-              <div className="mt-2 py-2 text-xl bg-slate-700  px-4 rounded-lg flex flex-col gap-2 lg:w-fit">
-                <p className="flex items-center gap-4">
-                  <FaCircleInfo /> {state.lang.langFile.selectTagsPrompt}
-                </p>
-                <p className="text-sm text-slate-400">{state.lang.langFile.tagsAddedToClipboard}</p>
-              </div>
-            </>
-          )}
+          {isCreatingCustomList && <CustomTagListInfo />}
           <div className="flex flex-col my-2 gap-4 outline outline-1 outline-slate-500 p-2 rounded-lg lg:w-fit">
             {tags &&
               tags.map((tag) => {
@@ -44,9 +36,7 @@ const Tags = () => {
           </div>
         </>
       ) : (
-        <>
-          <p className="flex justify-center font-medium ">{state.lang.langFile.noPermission}</p>
-        </>
+        <UnauthorizedForTags />
       )}
     </section>
   );
