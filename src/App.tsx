@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { RootLayout, ProtectedLayout } from "./layouts";
-import { HomePage, SignInPage, SignUpPage, GeneratorsPage, TextGeneratorPage, BirthNumberGeneratorPage, TimeReport, SettingsPage } from "./pages";
+import { HomePage, SignInPage, SignUpPage, GeneratorsPage, TextGeneratorPage, BirthNumberGeneratorPage, TimeReport, SettingsPage, Tags } from "./pages";
 import { ThemeProvider } from "./services/Context/ThemeProvider";
 import { Toaster } from "./components/ui/toaster";
 
@@ -37,6 +37,10 @@ function App() {
             {
               path: "birth-number",
               element: <BirthNumberGeneratorPage />,
+            },
+            {
+              path: "tags",
+              element: <Tags />,
             },
             {
               path: "time-report",

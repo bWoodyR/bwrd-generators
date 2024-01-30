@@ -47,5 +47,10 @@
     "Připojte se k nám na této cestě inovací a kreativity. Začněte generovat a nechte náhodnost rozvířit vaši představivost!"
   ],
   "welcomePageTitle": "vítejte ve zcela nové verzi 2 našeho projektu Generátorů!",
-  "timeReport": "Report času"
+  "timeReport": "Report času",
+  "noPermission": "Nemáte oprávnění k zobrazení této stránky. Kontaktujte prosím správce.",
+  "tagAddedToClipboard": "Štítek přidán do schránky.",
+  "allTagsAddedToClipboard": "Všechny štítky byly přidány do schránky.",
+  "selectTagsPrompt": "Vyberte všechny štítky, které chcete zkopírovat...",
+  "tagsAddedToClipboard": "Vybrané štítky budou automaticky přidány do schránky."
 }

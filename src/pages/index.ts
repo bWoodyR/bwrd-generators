@@ -6,5 +6,6 @@ import TextGeneratorPage from "./TextGeneratorPage/TextGeneratorPage";
 import BirthNumberGeneratorPage from "./BirthNumberGeneratorPage/BirthNumberGeneratorPage"
 import TimeReport from "./TimeReport/TimeReportPage";
 import SettingsPage from "./SettingsPage/SettingsPage";
+import Tags from "./Tags/TagsPage";
 
-export {SettingsPage, TimeReport, BirthNumberGeneratorPage, TextGeneratorPage, GeneratorsPage, HomePage, SignInPage, SignUpPage };
+export {Tags, SettingsPage, TimeReport, BirthNumberGeneratorPage, TextGeneratorPage, GeneratorsPage, HomePage, SignInPage, SignUpPage };

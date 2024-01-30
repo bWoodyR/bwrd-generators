@@ -9,7 +9,8 @@ type AppContextType = {
 };
 
 const initState: State = {
-  lang: getLanguage()
+  lang: getLanguage(),
+  user: undefined,
 };
 
 const AppContext = React.createContext<AppContextType>({
