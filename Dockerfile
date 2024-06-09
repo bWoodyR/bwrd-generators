@@ -11,8 +11,6 @@ RUN npm install
 # Copy the rest of the app files to the container
 COPY . .
 
-ENV VITE_CLERK_PUBLISHABLE_KEY=pk_test_aW5zcGlyZWQtZ3JvdXNlLTc0LmNsZXJrLmFjY291bnRzLmRldiQ
-
 # Build the React app (using the production build created earlier)
 RUN npm run build
 
