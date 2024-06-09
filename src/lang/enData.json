@@ -47,5 +47,10 @@
     "Join us on this journey of innovation and creativity. Start generating and let randomness spark your imagination!"
   ],
   "welcomePageTitle": "welcome to the all-new Version 2 of our Generators Project!",
-  "timeReport": "Time Report"
+  "timeReport": "Time Report",
+  "noPermission": "You don't have permission to view this site. Please contact administrator.",
+  "tagAddedToClipboard": "Tag added to clipboard.",
+  "allTagsAddedToClipboard": "All tags added to clipboard.",
+  "selectTagsPrompt": "Select all tags you want to copy...",
+  "tagsAddedToClipboard": "Selected tags will be automatically added to clipboard"
 }

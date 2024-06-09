@@ -1,6 +1,6 @@
 import { AppContext } from "@/services/Context/AppProvider";
 import { useContext } from "react";
-import { FaCalendarAlt, FaHome, FaTextWidth, FaUserClock } from "react-icons/fa";
+import { FaCalendarAlt, FaHashtag, FaHome, FaTextWidth, FaUserClock } from "react-icons/fa";
 import { FaGear } from "react-icons/fa6";
 import { Link, useLocation } from "react-router-dom";
 
@@ -31,6 +31,15 @@ const sidebarButtons = [
       cz: "Rodné číslo",
     },
     icon: <FaCalendarAlt />,
+  },
+  {
+    path: "tags",
+    name: {
+      en: "Tags",
+      sk: "Skrátené odkazy",
+      cz: "Zkrácené odkazy",
+    },
+    icon: <FaHashtag />,
   },
   {
     path: "time-report",
