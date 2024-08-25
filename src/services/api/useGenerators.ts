@@ -6,7 +6,6 @@ import { ACTION_TYPES } from "../Context/appReducer";
 import { useAuth } from "@clerk/clerk-react";
 import { TTag } from "@/types/TagType";
 import axiosServer from "@/utils/axios";
-import axios from "axios";
 
 export const useGeneratorsUsers = () => {
   const { dispatch } = useContext(AppContext);
@@ -47,7 +46,7 @@ export const useUpdateBalanceTag = () => {
   const { userId } = useAuth();
   const { data, isPending, mutate } = useMutation({
     mutationFn: async (data: UpdateBalanceTag) => {
-      const response = await axios.post(`/generators/${userId}/tags/balance`, data);
+      const response = await axiosServer.post(`/generators/${userId}/tags/balance`, data);
       return response.data;
     },
     onSuccess: () => {
