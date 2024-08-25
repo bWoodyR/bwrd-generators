@@ -1,11 +1,12 @@
 import { TGeneratorsUser } from "@/types/GeneratorsUserType";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AppContext } from "../Context/AppProvider";
 import { ACTION_TYPES } from "../Context/appReducer";
 import { useAuth } from "@clerk/clerk-react";
 import { TTag } from "@/types/TagType";
 import axiosServer from "@/utils/axios";
+import axios from "axios";
 
 export const useGeneratorsUsers = () => {
   const { dispatch } = useContext(AppContext);
@@ -36,4 +37,23 @@ export const useGeneratorsTags = () => {
     staleTime: 20 * (60 * 1000),
   });
   return { data, error, isError, isFetching, refetch };
+};
+
+type UpdateBalanceTag = {
+  balanceUrl: string;
+};
+export const useUpdateBalanceTag = () => {
+  const queryClient = useQueryClient();
+  const { userId } = useAuth();
+  const { data, isPending, mutate } = useMutation({
+    mutationFn: async (data: UpdateBalanceTag) => {
+      const response = await axios.post(`/generators/${userId}/tags/balance`, data);
+      return response.data;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["tags"] });
+    },
+  });
+
+  return { data, isPending, mutate };
 };

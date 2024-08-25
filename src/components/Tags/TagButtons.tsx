@@ -1,12 +1,13 @@
 import { TTag } from "@/types/TagType";
 import { Button } from "../ui/button";
+import BalanceTagDialog from "./BalanceTagDialog";
 
 type TagButtonsProps = {
   isCreatingCustomList: boolean;
   setIsCreatingCustomList: React.Dispatch<React.SetStateAction<boolean>>;
   selectedTags: TTag[];
   setSelectedTags: React.Dispatch<React.SetStateAction<TTag[]>>;
-  callbackCopyAllTags: () => void
+  callbackCopyAllTags: () => void;
 };
 
 const TagButtons = ({ isCreatingCustomList, setIsCreatingCustomList, setSelectedTags, selectedTags, callbackCopyAllTags }: TagButtonsProps) => {
@@ -21,6 +22,7 @@ const TagButtons = ({ isCreatingCustomList, setIsCreatingCustomList, setSelected
       <Button variant={"destructive"} disabled={!isCreatingCustomList || selectedTags.length === 0} onClick={() => setSelectedTags([])}>
         Delete selected tags from list
       </Button>
+      <BalanceTagDialog isCreatingCustomList={isCreatingCustomList} />
     </div>
   );
 };
