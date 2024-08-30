@@ -2,8 +2,9 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { useUpdateBalanceTag } from "@/services/api/useGenerators";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { DialogClose } from "@radix-ui/react-dialog";
+import { AppContext } from "@/services/Context/AppProvider";
 
 type Props = {
   isCreatingCustomList: boolean;
@@ -12,6 +13,7 @@ type Props = {
 const BalanceTagDialog = ({ isCreatingCustomList }: Props) => {
   const [newUrl, setNewUrl] = useState("");
   const { mutate } = useUpdateBalanceTag();
+  const { state } = useContext(AppContext);
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,7 +24,7 @@ const BalanceTagDialog = ({ isCreatingCustomList }: Props) => {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant={"secondary"} disabled={isCreatingCustomList}>
-          Update Balance URL
+          {state.lang.langFile.updateBalanceUrlButton}
         </Button>
       </DialogTrigger>
       <DialogContent>

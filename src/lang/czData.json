@@ -52,5 +52,10 @@
   "tagAddedToClipboard": "Štítek přidán do schránky.",
   "allTagsAddedToClipboard": "Všechny štítky byly přidány do schránky.",
   "selectTagsPrompt": "Vyberte všechny štítky, které chcete zkopírovat...",
-  "tagsAddedToClipboard": "Vybrané štítky budou automaticky přidány do schránky."
+  "tagsAddedToClipboard": "Vybrané štítky budou automaticky přidány do schránky.",
+  "copyAllLinksButton": "COPY ALL LINKS",
+  "createListButton": "CREATE LIST",
+  "stopCreatingListButton": "STOP CREATING LIST",
+  "deleteTagsFromListButton": "Delete selected tags from list",
+  "updateBalanceUrlButton": "Aktualizovat link Bilance"
 }

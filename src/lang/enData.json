@@ -52,5 +52,10 @@
   "tagAddedToClipboard": "Tag added to clipboard.",
   "allTagsAddedToClipboard": "All tags added to clipboard.",
   "selectTagsPrompt": "Select all tags you want to copy...",
-  "tagsAddedToClipboard": "Selected tags will be automatically added to clipboard"
+  "tagsAddedToClipboard": "Selected tags will be automatically added to clipboard",
+  "copyAllLinksButton": "COPY ALL LINKS",
+  "createListButton": "CREATE LIST",
+  "stopCreatingListButton": "STOP CREATING LIST",
+  "deleteTagsFromListButton": "Delete selected tags from list",
+  "updateBalanceUrlButton": "Update Balance URL"
 }
