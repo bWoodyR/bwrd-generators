@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { useUpdateBalanceTag } from "@/services/api/useGenerators";
 import { useContext, useState } from "react";
-import { DialogClose } from "@radix-ui/react-dialog";
+// import { DialogClose } from "@radix-ui/react-dialog";
 import { AppContext } from "@/services/Context/AppProvider";
 
 type Props = {
@@ -11,17 +11,21 @@ type Props = {
 };
 
 const BalanceTagDialog = ({ isCreatingCustomList }: Props) => {
+  const [open, setOpen] = useState(false);
   const [newUrl, setNewUrl] = useState("");
   const { mutate } = useUpdateBalanceTag();
   const { state } = useContext(AppContext);
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (newUrl) mutate({ balanceUrl: newUrl });
+    if (newUrl) {
+      mutate({ balanceUrl: newUrl });
+      setOpen(false);
+    }
   };
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant={"secondary"} disabled={isCreatingCustomList}>
           {state.lang.langFile.updateBalanceUrlButton}
@@ -36,11 +40,11 @@ const BalanceTagDialog = ({ isCreatingCustomList }: Props) => {
         <form className="flex flex-col gap-2" onSubmit={(e) => handleFormSubmit(e)}>
           <label htmlFor="">New Balance URL</label>
           <Input type="url" name="balanceUrl" id="balanceUrl" value={newUrl} onChange={(e) => setNewUrl(e.target.value)} />
-          <DialogClose asChild>
-            <Button type="submit" variant={"secondary"} className="tracking-wider">
-              UPDATE
-            </Button>
-          </DialogClose>
+          {/* <DialogClose asChild> */}
+          <Button type="submit" variant={"secondary"} className="tracking-wider">
+            UPDATE
+          </Button>
+          {/* </DialogClose> */}
         </form>
       </DialogContent>
     </Dialog>
