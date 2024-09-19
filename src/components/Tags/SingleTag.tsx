@@ -40,7 +40,7 @@ const SingleTag = ({ tagData, isCreatingCustomList, selectedTags, setSelectedTag
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <ToggleGroupItem value="copy">
+              <ToggleGroupItem value="copy" onClick={() => navigator.clipboard.writeText(`${tagData.text} - ${tagData.url}`)}>
                 <FaCopy />
               </ToggleGroupItem>
             </TooltipTrigger>
