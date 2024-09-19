@@ -40,7 +40,15 @@ const SingleTag = ({ tagData, isCreatingCustomList, selectedTags, setSelectedTag
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <ToggleGroupItem value="copy" onClick={() => navigator.clipboard.writeText(`${tagData.text} - ${tagData.url}`)}>
+              <ToggleGroupItem
+                value="copy"
+                onClick={() => {
+                  navigator.clipboard.writeText(`${tagData.text} - ${tagData.url}`),
+                    toast({
+                      description: state.lang.langFile.tagAddedToClipboard,
+                    });
+                }}
+              >
                 <FaCopy />
               </ToggleGroupItem>
             </TooltipTrigger>

@@ -23,6 +23,7 @@ const UpdateTagDialog = ({ children, tagData }: Props) => {
     if (newUrl) {
       mutate({ ...tagData, url: newUrl });
       setOpen(false);
+      setNewUrl("")
     }
   };
 
