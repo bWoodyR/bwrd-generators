@@ -57,6 +57,5 @@
   "createListButton": "CREATE LIST",
   "stopCreatingListButton": "STOP CREATING LIST",
   "deleteTagsFromListButton": "Delete selected tags from list",
-  "updateBalanceUrlButton": "Update Balance URL",
-  "balanceUrlUpdateDialog": ["Balance URL update", "This action will update balance link for all users.", "New Balance URL", "UPDATE"]
+  "balanceUrlUpdateDialog": ["URL update", "This action will update URL for all users.", "New URL", "UPDATE"]
 }

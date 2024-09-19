@@ -5,7 +5,7 @@ const SidebarUser = () => {
   return (
     <div className="flex justify-center items-center gap-2">
       <UserButton afterSignOutUrl="/"></UserButton>
-      <span className="hidden md:block">{user?.emailAddresses[0].emailAddress}</span>
+      <span className="hidden lg:block">{user?.emailAddresses[0].emailAddress}</span>
     </div>
   );
 };

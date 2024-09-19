@@ -78,9 +78,9 @@ const SidebarButtons = ({ showFulSidebar }: SidebarButtonsProps) => {
             to={nav.path}
             className={`flex items-center ${showFulSidebar ? "justify-start" : "justify-center"}  gap-4 w-full p-2 text-white text-lg ${
               currentSection === nav.path || (currentSection === undefined && nav.path === "/generators") ? "bg-slate-600" : null
-            } md:justify-start hover:bg-slate-600 rounded-lg `}
+            } lg:justify-start hover:bg-slate-600 rounded-lg `}
           >
-            <span className="flex items-center justify-center text-2xl md:text-xl">{nav.icon}</span> <span className={`${showFulSidebar ? "block" : "hidden"} md:block`}>{nav.name[state.lang.language]}</span>
+            <span className="flex items-center justify-center text-2xl lg:text-xl">{nav.icon}</span> <span className={`${showFulSidebar ? "block" : "hidden"} lg:block`}>{nav.name[state.lang.language]}</span>
           </Link>
         );
       })}

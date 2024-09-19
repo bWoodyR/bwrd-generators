@@ -1,39 +1,39 @@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import { useUpdateBalanceTag } from "@/services/api/useGenerators";
+import { useUpdateTagUrl } from "@/services/api/useGenerators";
 import { useContext, useState } from "react";
 // import { DialogClose } from "@radix-ui/react-dialog";
 import { AppContext } from "@/services/Context/AppProvider";
+import { TTag } from "@/types/TagType";
 
 type Props = {
-  isCreatingCustomList: boolean;
+  children: React.ReactNode;
+  tagData: TTag;
 };
 
-const BalanceTagDialog = ({ isCreatingCustomList }: Props) => {
+const UpdateTagDialog = ({ children, tagData }: Props) => {
   const [open, setOpen] = useState(false);
   const [newUrl, setNewUrl] = useState("");
-  const { mutate } = useUpdateBalanceTag();
+  const { mutate } = useUpdateTagUrl();
   const { state } = useContext(AppContext);
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (newUrl) {
-      mutate({ balanceUrl: newUrl });
+      mutate({ ...tagData, url: newUrl });
       setOpen(false);
     }
   };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button variant={"secondary"} disabled={isCreatingCustomList}>
-          {state.lang.langFile.updateBalanceUrlButton}
-        </Button>
-      </DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>{state.lang.langFile.balanceUrlUpdateDialog[0]}</DialogTitle>
+          <DialogTitle>
+            {tagData.text} {state.lang.langFile.balanceUrlUpdateDialog[0]}
+          </DialogTitle>
           <DialogDescription>{state.lang.langFile.balanceUrlUpdateDialog[1]}</DialogDescription>
         </DialogHeader>
         <hr />
@@ -51,4 +51,4 @@ const BalanceTagDialog = ({ isCreatingCustomList }: Props) => {
   );
 };
 
-export default BalanceTagDialog;
+export default UpdateTagDialog;

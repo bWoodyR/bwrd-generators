@@ -41,7 +41,7 @@ export default function DashboardLayout() {
     <>
       <section className="flex relative">
         <Sidebar />
-        <div className="ml-[75px] md:ml-[250px] w-full  mt-4  overflow-hidden">
+        <div className="ml-[75px] lg:ml-[250px] w-full  mt-4  overflow-hidden">
           <Outlet />
         </div>
       </section>

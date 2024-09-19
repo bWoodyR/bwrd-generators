@@ -1,6 +1,5 @@
 import { TTag } from "@/types/TagType";
 import { Button } from "../ui/button";
-import BalanceTagDialog from "./BalanceTagDialog";
 import { useContext } from "react";
 import { AppContext } from "@/services/Context/AppProvider";
 
@@ -25,7 +24,6 @@ const TagButtons = ({ isCreatingCustomList, setIsCreatingCustomList, setSelected
       <Button variant={"destructive"} disabled={!isCreatingCustomList || selectedTags.length === 0} onClick={() => setSelectedTags([])}>
         {state.lang.langFile.deleteTagsFromListButton}
       </Button>
-      <BalanceTagDialog isCreatingCustomList={isCreatingCustomList} />
     </div>
   );
 };

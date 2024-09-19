@@ -57,6 +57,5 @@
   "createListButton": "CREATE LIST",
   "stopCreatingListButton": "STOP CREATING LIST",
   "deleteTagsFromListButton": "Delete selected tags from list",
-  "updateBalanceUrlButton": "Aktualizovat link Bilance",
-  "balanceUrlUpdateDialog": ["Aktualizace tagu bilance", "Táto akce aktualizuje tag bilance pro všechny uživatele.", "Nový link pre bilanci", "AKTUALIZOVAT"]
+  "balanceUrlUpdateDialog": ["Aktualizace URL", "Táto akce aktualizuje URL pro všechny uživatele.", "Nová URL", "AKTUALIZOVAT"]
 }

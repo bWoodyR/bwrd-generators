@@ -38,14 +38,12 @@ export const useGeneratorsTags = () => {
   return { data, error, isError, isFetching, refetch };
 };
 
-type UpdateBalanceTag = {
-  balanceUrl: string;
-};
-export const useUpdateBalanceTag = () => {
+
+export const useUpdateTagUrl = () => {
   const queryClient = useQueryClient();
   const { userId } = useAuth();
   const { data, isPending, mutate } = useMutation({
-    mutationFn: async (data: UpdateBalanceTag) => {
+    mutationFn: async (data: TTag) => {
       const response = await axiosServer.post(`/generators/${userId}/tags/balance`, data);
       return response.data;
     },
