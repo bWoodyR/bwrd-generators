@@ -33,12 +33,12 @@ const UpdateTagDialog = ({ children, tagData }: Props) => {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            {tagData.text} {state.lang.langFile.balanceUrlUpdateDialog[0]}
+            {tagData.text} - {state.lang.langFile.balanceUrlUpdateDialog[0]}
           </DialogTitle>
           <DialogDescription>{state.lang.langFile.balanceUrlUpdateDialog[1]}</DialogDescription>
         </DialogHeader>
         <hr />
-        <form className="flex flex-col gap-2" onSubmit={(e) => handleFormSubmit(e)}>
+        <form className="flex flex-col gap-4" onSubmit={(e) => handleFormSubmit(e)}>
           <label htmlFor="">{state.lang.langFile.balanceUrlUpdateDialog[2]}</label>
           <Input type="url" name="balanceUrl" id="balanceUrl" value={newUrl} onChange={(e) => setNewUrl(e.target.value)} />
           {/* <DialogClose asChild> */}
