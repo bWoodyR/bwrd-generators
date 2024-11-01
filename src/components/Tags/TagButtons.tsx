@@ -24,6 +24,9 @@ const TagButtons = ({ isCreatingCustomList, setIsCreatingCustomList, setSelected
       <Button variant={"destructive"} disabled={!isCreatingCustomList || selectedTags.length === 0} onClick={() => setSelectedTags([])}>
         {state.lang.langFile.deleteTagsFromListButton}
       </Button>
+      <Button disabled variant={"secondary"}>
+        {state.lang.langFile.addNewTag}{" "}
+      </Button>
     </div>
   );
 };

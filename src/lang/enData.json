@@ -57,5 +57,7 @@
   "createListButton": "CREATE LIST",
   "stopCreatingListButton": "STOP CREATING LIST",
   "deleteTagsFromListButton": "Delete selected tags from list",
-  "balanceUrlUpdateDialog": ["URL update", "This action will update URL for all users.", "New URL", "UPDATE"]
+  "balanceUrlUpdateDialog": ["URL update", "This action will update URL for all users.", "New URL", "UPDATE"],
+  "urlUDeleteDialog": ["DELETE TAG", "This action will delete tag for all users.", "DELETE"],
+  "addNewTag": "Add new tag"
 }

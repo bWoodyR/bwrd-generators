@@ -57,5 +57,7 @@
   "createListButton": "CREATE LIST",
   "stopCreatingListButton": "STOP CREATING LIST",
   "deleteTagsFromListButton": "Delete selected tags from list",
-  "balanceUrlUpdateDialog": ["Aktualizace URL", "Táto akce aktualizuje URL pro všechny uživatele.", "Nová URL", "AKTUALIZOVAT"]
+  "balanceUrlUpdateDialog": ["Aktualizace URL", "Táto akce aktualizuje URL pro všechny uživatele.", "Nová URL", "AKTUALIZOVAT"],
+  "urlUDeleteDialog": ["VYMAZAŤ TAG", "Táto akce vymaže tag pro všechny uživatele.", "VYMAZAŤ"],
+  "addNewTag": "Pridať nový tag"
 }

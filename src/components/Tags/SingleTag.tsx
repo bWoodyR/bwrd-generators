@@ -2,10 +2,11 @@ import { TTag } from "@/types/TagType";
 import { toast } from "../ui/use-toast";
 import { useContext } from "react";
 import { AppContext } from "@/services/Context/AppProvider";
-import { FaCopy, FaPen } from "react-icons/fa6";
+import { FaCopy, FaPen, FaRegTrashCan } from "react-icons/fa6";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import UpdateTagDialog from "./UpdateTagDialog";
+import DeleteTagDialog from "./DeleteTagDialog";
 
 type SingleTagProps = {
   tagData: TTag;
@@ -63,6 +64,12 @@ const SingleTag = ({ tagData, isCreatingCustomList, selectedTags, setSelectedTag
             <FaPen />
           </ToggleGroupItem>
         </UpdateTagDialog>
+
+        <DeleteTagDialog tagData={tagData}>
+          <ToggleGroupItem value="delete">
+            <FaRegTrashCan />
+          </ToggleGroupItem>
+        </DeleteTagDialog>
       </ToggleGroup>
     </div>
   );
