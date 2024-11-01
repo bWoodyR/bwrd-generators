@@ -59,5 +59,6 @@
   "deleteTagsFromListButton": "Delete selected tags from list",
   "balanceUrlUpdateDialog": ["URL update", "This action will update URL for all users.", "New URL", "UPDATE"],
   "urlUDeleteDialog": ["DELETE TAG", "This action will delete tag for all users.", "DELETE"],
+  "addTagDialog": ["ADD TAG", "This action will add new tag for all users.", "URL", "Text", "Category", "ADD"],
   "addNewTag": "Add new tag"
 }

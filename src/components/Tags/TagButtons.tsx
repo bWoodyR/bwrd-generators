@@ -26,8 +26,8 @@ const TagButtons = ({ isCreatingCustomList, setIsCreatingCustomList, setSelected
         {state.lang.langFile.deleteTagsFromListButton}
       </Button>
       <AddTagDialog>        
-      <Button disabled variant={"secondary"}>
-        {state.lang.langFile.addNewTag}{" "}
+      <Button variant={"secondary"}>
+        {state.lang.langFile.addNewTag}
       </Button>
       </AddTagDialog>
     </div>

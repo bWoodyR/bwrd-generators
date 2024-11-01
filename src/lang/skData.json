@@ -59,5 +59,6 @@
   "deleteTagsFromListButton": "Vymazať vybrané tagy z listu",
   "balanceUrlUpdateDialog": ["Aktualizácia URL", "Táto akcia aktualizuje URL pre všetkých uživateľov.", "Nová URL", "AKTUALIZOVAŤ"],
   "urlUDeleteDialog": ["VYMAZAŤ TAG", "Táto akcia vymaže tag pre všetkých uživateľov.", "VYMAZAŤ"],
+  "addTagDialog": ["PRIDAŤ TAG", "Táto akcia pridá tag pre všetkých uživateľov.", "URL", "Text", "Kategória", "PRIDAŤ"],
   "addNewTag": "Pridať nový tag"
 }

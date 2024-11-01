@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AppContext } from "../Context/AppProvider";
 import { ACTION_TYPES } from "../Context/appReducer";
 import { useAuth } from "@clerk/clerk-react";
-import { TTag } from "@/types/TagType";
+import { Inputs, TTag } from "@/types/TagType";
 import axiosServer from "@/utils/axios";
 
 export const useGeneratorsUsers = () => {
@@ -43,7 +43,7 @@ export const useUpdateTagUrl = () => {
   const { userId } = useAuth();
   const { data, isPending, mutate } = useMutation({
     mutationFn: async (data: TTag) => {
-      const response = await axiosServer.post(`/generators/${userId}/tags/balance`, data);
+      const response = await axiosServer.patch(`/generators/${userId}/tags/balance`, data);
       return response.data;
     },
     onSuccess: () => {
@@ -73,7 +73,7 @@ export const useAddTag = () => {
   const queryClient = useQueryClient();
   const { userId } = useAuth();
   const { data, isPending, mutate } = useMutation({
-    mutationFn: async (data: TTag) => {
+    mutationFn: async (data: Inputs) => {
       const response = await axiosServer.post(`/generators/${userId}/tags`, data);
       return response.data;
     },
