@@ -2,6 +2,7 @@ import { TTag } from "@/types/TagType";
 import { Button } from "../ui/button";
 import { useContext } from "react";
 import { AppContext } from "@/services/Context/AppProvider";
+import AddTagDialog from "./AddTagDialog";
 
 type TagButtonsProps = {
   isCreatingCustomList: boolean;
@@ -24,9 +25,11 @@ const TagButtons = ({ isCreatingCustomList, setIsCreatingCustomList, setSelected
       <Button variant={"destructive"} disabled={!isCreatingCustomList || selectedTags.length === 0} onClick={() => setSelectedTags([])}>
         {state.lang.langFile.deleteTagsFromListButton}
       </Button>
+      <AddTagDialog>        
       <Button disabled variant={"secondary"}>
         {state.lang.langFile.addNewTag}{" "}
       </Button>
+      </AddTagDialog>
     </div>
   );
 };

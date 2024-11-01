@@ -59,7 +59,7 @@ export const useDeleteTag = () => {
   const { userId } = useAuth();
   const { isPending, mutate } = useMutation({
     mutationFn: async (data: TTag) => {
-      const response = await axiosServer.delete(`/generators/${userId}/tags`, data);
+      const response = await axiosServer.delete(`/generators/${userId}/tags/${data._id}`);
       return response.data;
     },
     onSuccess: () => {
@@ -69,4 +69,17 @@ export const useDeleteTag = () => {
   return { mutate, isPending };
 };
 
-export const useAddTag = () => {};
+export const useAddTag = () => {
+  const queryClient = useQueryClient();
+  const { userId } = useAuth();
+  const { data, isPending, mutate } = useMutation({
+    mutationFn: async (data: TTag) => {
+      const response = await axiosServer.post(`/generators/${userId}/tags`, data);
+      return response.data;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["tags"] });
+    },
+  });
+  return { data, isPending, mutate };
+};
