@@ -13,11 +13,7 @@ type Props = {
 };
 
 const AddTagDialog = ({ children }: Props) => {
-  const { register, control, handleSubmit, reset, formState } = useForm<Inputs>({
-    defaultValues: {
-      category: "",
-    },
-  });
+  const { register, control, handleSubmit, reset, formState } = useForm<Inputs>();
   const [open, setOpen] = useState(false);
   const { mutate } = useAddTag();
   const { state } = useContext(AppContext);
@@ -58,7 +54,7 @@ const AddTagDialog = ({ children }: Props) => {
               name="category"
               control={control}
               render={({ field }) => (
-                <Select onValueChange={field.onChange}>
+                <Select onValueChange={field.onChange} required>
                   <SelectTrigger>
                     <SelectValue placeholder="" />
                   </SelectTrigger>
